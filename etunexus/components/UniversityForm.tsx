@@ -1,83 +1,38 @@
-// components/UniversityForm.tsx
-import { useState } from "react";
+// UniversityList.tsx
 
-interface UniversityFormProps {
-  onSubmit: (data: any) => void;
-  initialData?: any;
-}
+import React, { useEffect, useState } from "react";
+import { getAllUniversities } from "@/app/api/universities/route"; // Adjust path as needed
 
-const UniversityForm: React.FC<UniversityFormProps> = ({
-  onSubmit,
-  initialData,
-}) => {
-  const [formData, setFormData] = useState(
-    initialData || {
-      name: "",
-      logoUrl: "",
-      description: "",
-      location: "",
-      academicEmailFormat: "",
-      websiteUrl: "",
-    }
-  );
+const UniversityList: React.FC = () => {
+  const [universities, setUniversities] = useState<any[]>([]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  useEffect(() => {
+    const fetchUniversities = async () => {
+      try {
+        const universitiesData = await getAllUniversities();
+        setUniversities(universitiesData);
+      } catch (error) {
+        console.error("Error fetching universities:", error);
+      }
+    };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
+    fetchUniversities();
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Name"
-        required
-      />
-      <input
-        name="logoUrl"
-        value={formData.logoUrl}
-        onChange={handleChange}
-        placeholder="Logo URL"
-        required
-      />
-      <input
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        placeholder="Description"
-        required
-      />
-      <input
-        name="location"
-        value={formData.location}
-        onChange={handleChange}
-        placeholder="Location"
-        required
-      />
-      <input
-        name="academicEmailFormat"
-        value={formData.academicEmailFormat}
-        onChange={handleChange}
-        placeholder="Academic Email Format"
-        required
-      />
-      <input
-        name="websiteUrl"
-        value={formData.websiteUrl}
-        onChange={handleChange}
-        placeholder="Website URL"
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <h2>List of Universities</h2>
+      <ul>
+        {universities.map((university) => (
+          <li key={university._id}>
+            <h3>{university.name}</h3>
+            <p>{university.description}</p>
+            {/* Add more details as needed */}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default UniversityForm;
+export default UniversityList;
