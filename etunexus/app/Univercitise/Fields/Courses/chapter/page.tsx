@@ -29,22 +29,18 @@ export default function Component() {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/universities">
-                  University Name
+                <BreadcrumbLink href="/Univercitise/Fields">
+                  University
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/courses/quantum-mechanics">
+                <BreadcrumbLink href="/Univercitise/Fields/Courses">
                   Quantum Mechanics
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>
-                  Introduction to Quantum Mechanics
-                </BreadcrumbPage>
-              </BreadcrumbItem>
+              <BreadcrumbItem></BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
           <div className="flex items-center justify-between py-2">
@@ -154,54 +150,6 @@ export default function Component() {
                       Section 1.1: What is Quantum Mechanics?
                     </span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <VideoIcon className="h-8 w-8 text-primary" />
-                      <span>Embedded video</span>
-                    </div>
-                    <Link
-                      href="#"
-                      className="inline-flex items-center gap-1 text-primary hover:underline"
-                      prefetch={false}
-                    >
-                      View
-                      <ArrowRightIcon className="h-4 w-4" />
-                    </Link>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">
-                      Additional content
-                    </span>
-                    <Link
-                      href="#"
-                      className="text-primary hover:underline"
-                      prefetch={false}
-                    >
-                      View
-                    </Link>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Questions</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <FileQuestionIcon className="h-8 w-8 text-primary" />
-                      <span>What is an algorithm?</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-muted-foreground">Answer:</span>
-                      <span>
-                        An algorithm is a step-by-step procedure to solve a
-                        problem.
-                      </span>
-                    </div>
-                  </div>
-                  <Button>
-                    <PlusIcon className="h-5 w-5" />
-                    Add Question
-                  </Button>
                 </div>
               </div>
             </div>

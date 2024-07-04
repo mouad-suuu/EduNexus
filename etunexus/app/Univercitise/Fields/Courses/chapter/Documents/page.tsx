@@ -31,13 +31,13 @@ export default function Component() {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/universities">
-                  University Name
+                <BreadcrumbLink href="/Univercitise/Fields">
+                  University
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/courses/quantum-mechanics">
+                <BreadcrumbLink href="/Univercitise/Fields/Courses">
                   Quantum Mechanics
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -89,7 +89,7 @@ export default function Component() {
             </nav>
             <Button>
               <PlusIcon className="h-5 w-5" />
-              Add Document
+              share Document
             </Button>
           </div>
         </nav>

@@ -55,17 +55,17 @@ export default function Component() {
         <section className="w-full py-12 sm:py-24 lg:py-32 bg-[url('/library.png?height=800&width=1600')] bg-cover bg-center">
           <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-14">
             <div className="space-y-2 text-center">
-              <h1 className="text-black text-3xl font-bold tracking-tighter text-primary-foreground sm:text-5xl xl:text-6xl">
+              <h1 className="text-black text-3xl font-bold tracking-tighter  sm:text-5xl xl:text-6xl">
                 Welcome to EduNexus
               </h1>
-              <p className="text-black max-w-[600px] font-bold text-primary-foreground md:text-xl">
+              <p className="text-black max-w-[600px] font-bold  md:text-xl">
                 Your Gateway to Comprehensive Learning
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row w-full">
               <Link
                 href="/Univercitise"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 flex-1"
+                className="text-white inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium  shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 flex-1"
                 prefetch={false}
               >
                 Explore Communities
@@ -87,7 +87,7 @@ export default function Component() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Key Features
                 </h2>
-                <p className="max-w-[900px] text-primary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px]  md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Discover the comprehensive capabilities of EduNexus.
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default function Component() {
                         <FilePenIcon className="h-6 w-6 text-primary" />
                         <h3 className="text-xl font-bold">Course Creation</h3>
                       </div>
-                      <p className="text-black text-primary-foreground">
+                      <p className="text-black ">
                         Easily create and manage engaging courses.
                       </p>
                     </div>
@@ -114,7 +114,7 @@ export default function Component() {
                           Collaborative Learning
                         </h3>
                       </div>
-                      <p className="text-black text-primary-foreground">
+                      <p className="text-black ">
                         Foster interactive learning through discussions and
                         group projects.
                       </p>
@@ -128,7 +128,7 @@ export default function Component() {
                           Comprehensive Resources
                         </h3>
                       </div>
-                      <p className="text-black text-primary-foreground">
+                      <p className="text-black ">
                         Access a vast library of educational materials and
                         multimedia content.
                       </p>
@@ -142,7 +142,7 @@ export default function Component() {
                           Personalized Learning
                         </h3>
                       </div>
-                      <p className="text-black text-primary-foreground">
+                      <p className="text-black ">
                         Tailor your learning experience with personalized paths
                         and recommendations.
                       </p>
@@ -167,7 +167,7 @@ export default function Component() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   About EduNexus
                 </h2>
-                <p className="text-black max-w-[900px] font-mono text-primary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="text-black max-w-[900px] font-mono  md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   EduNexus is a revolutionary platform designed to centralize
                   educational resources and empower both learners and educators.
                   Our mission is to create a seamless learning experience by
@@ -188,22 +188,18 @@ export default function Component() {
                 </h2>
                 <div className=" grid gap-12 px-4 h-12 md:grid-cols-2">
                   <div className="space-y-2">
-                    <blockquote className="font-mono text-black text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl text-primary-foreground">
+                    <blockquote className="font-mono text-black text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl ">
                       EduNexus transformed how I teach and learn. Its intuitive,
                       engaging, and packed with resources!
                     </blockquote>
-                    <div className="font-semibold text-primary-foreground">
-                      Professor John Doe
-                    </div>
+                    <div className="font-semibold ">Professor John Doe</div>
                   </div>
                   <div className="space-y-2">
-                    <blockquote className="font-mono text-black  text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl text-primary-foreground">
+                    <blockquote className="font-mono text-black  text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl ">
                       As a student, EduNexus helped me excel in my studies by
                       offering comprehensive learning tools in one place.
                     </blockquote>
-                    <div className="font-semibold text-primary-foreground">
-                      Jane Smith
-                    </div>
+                    <div className="font-semibold ">Jane Smith</div>
                   </div>
                 </div>
               </div>
@@ -211,17 +207,17 @@ export default function Component() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[url('/placeholder.svg?height=550&width=1100')] bg-cover bg-center">
-          <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center text-primary-foreground">
+          <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center ">
             <div className="space-y-2">
               <h2 className="text-black text-3xl font-bold tracking-tighter sm:text-5xl">
                 Our Future Goals
               </h2>
-              <p className="font-mono text-black  max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-primary-foreground">
+              <p className="font-mono text-black  max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
                 At EduNexus, we are committed to evolving and expanding our
                 platform to meet your educational needs. Our future goals
                 include:
               </p>
-              <ul className="text-black font-mono text-left space-y-2 text-primary-foreground">
+              <ul className="text-black font-mono text-left space-y-2 ">
                 <li>
                   Enhancing AI-driven features for personalized learning
                   assistance.
@@ -239,12 +235,12 @@ export default function Component() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[url('/placeholder.svg?height=550&width=1100')] bg-cover bg-center">
-          <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center text-primary-foreground">
+          <div className="container px-4 md:px-6 flex flex-col items-center justify-center space-y-4 text-center ">
             <div className="space-y-2">
               <h2 className="text-black text-3xl font-bold tracking-tighter sm:text-5xl">
                 Your Feedback Matters
               </h2>
-              <p className="text-black max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-primary-foreground">
+              <p className="text-black max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
                 We value your input to improve EduNexus continuously. Share your
                 thoughts and suggestions with us to enhance your learning
                 experience.
@@ -255,10 +251,7 @@ export default function Component() {
                   className="p-4 min-h-[150px]"
                 />
                 <div className="flex items-center gap-2">
-                  <Label
-                    htmlFor="rating"
-                    className="text-black text-primary-foreground"
-                  >
+                  <Label htmlFor="rating" className="text-black ">
                     Rating:
                   </Label>
                   <Select>

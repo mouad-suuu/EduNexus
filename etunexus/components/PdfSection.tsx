@@ -11,7 +11,7 @@ const PdfSection = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-100">
+    <section className="flex-col items-center justify-center py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-100">
       <div className="max-w-screen-lg px-4 md:px-8 lg:px-16 xl:px-24">
         <div className="text-center space-y-4">
           <h2 className="text-black text-3xl font-bold">PDF Viewer Section</h2>
