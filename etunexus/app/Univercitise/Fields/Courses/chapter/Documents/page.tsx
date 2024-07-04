@@ -1,3 +1,5 @@
+import PdfSection from "@/components/PdfSection";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -87,7 +89,7 @@ export default function Component() {
             </nav>
             <Button>
               <PlusIcon className="h-5 w-5" />
-              Add New Chapter
+              Add Document
             </Button>
           </div>
         </nav>
@@ -121,89 +123,9 @@ export default function Component() {
           </Collapsible>
         </div>
         <div>
-          <section className="py-12 sm:py-16 md:py-20 lg:py-24">
-            <div className="flex flex-col items-start justify-between">
-              <div>
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                  Chapter 1: Basics
-                </h1>
-                <p className="mt-4 text-muted-foreground">
-                  Introduction to the basics of quantum mechanics.
-                </p>
-                <div className="mt-4 flex items-center gap-4 text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <UserIcon className="h-5 w-5" />
-                    <span>Created by: Prof. Jane Doe</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <UsersIcon className="h-5 w-5" />
-                    <span>Edited by: Prof. John Smith, Dr. Sarah Lee</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <BookIcon className="h-5 w-5" />
-                    <span>Course Type: Quantum Mechanics</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 space-y-6">
-              <div className="grid gap-4">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">
-                      Section 1.1: What is Quantum Mechanics?
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <VideoIcon className="h-8 w-8 text-primary" />
-                      <span>Embedded video</span>
-                    </div>
-                    <Link
-                      href="#"
-                      className="inline-flex items-center gap-1 text-primary hover:underline"
-                      prefetch={false}
-                    >
-                      View
-                      <ArrowRightIcon className="h-4 w-4" />
-                    </Link>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">
-                      Additional content
-                    </span>
-                    <Link
-                      href="#"
-                      className="text-primary hover:underline"
-                      prefetch={false}
-                    >
-                      View
-                    </Link>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Questions</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <FileQuestionIcon className="h-8 w-8 text-primary" />
-                      <span>What is an algorithm?</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-muted-foreground">Answer:</span>
-                      <span>
-                        An algorithm is a step-by-step procedure to solve a
-                        problem.
-                      </span>
-                    </div>
-                  </div>
-                  <Button>
-                    <PlusIcon className="h-5 w-5" />
-                    Add Question
-                  </Button>
-                </div>
-              </div>
+          <section className="flex justify-center ">
+            <div className="  w-full">
+              <PdfSection />
             </div>
           </section>
         </div>

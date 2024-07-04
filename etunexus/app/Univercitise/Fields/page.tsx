@@ -52,7 +52,7 @@ export default function Component() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                University of Cambridge
+                Harvard University
               </h1>
               <p className="mt-4 max-w-md text-lg text-muted-foreground">
                 A prestigious research university with a rich history and global
@@ -75,10 +75,10 @@ export default function Component() {
             </div>
             <div className="rounded-lg bg-muted p-6">
               <Image
-                src="/placeholder.svg"
+                src="/harvard.png"
                 width={400}
                 height={300}
-                alt="University of Cambridge"
+                alt="University of Harvard"
                 className="rounded-lg object-cover"
               />
             </div>
@@ -96,7 +96,7 @@ export default function Component() {
                   <h3 className="text-lg font-bold">Physics</h3>
                 </div>
                 <Link
-                  href="#"
+                  href="/Univercitise/Fields/Courses"
                   className="inline-flex items-center gap-1 text-primary hover:underline"
                   prefetch={false}
                 >

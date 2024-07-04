@@ -77,20 +77,11 @@ export default function Component() {
                 </div>
               </div>
             </div>
-            <div className="rounded-lg bg-muted p-6">
-              <Image
-                src="/placeholder.svg"
-                width={400}
-                height={300}
-                alt="Physics"
-                className="rounded-lg object-cover"
-              />
-            </div>
           </div>
         </section>
         <section className="container py-12 sm:py-16 md:py-20 lg:py-24">
           <h2 className="mb-8 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Courses for Physics
+            Chapters for Physics
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <Card className="group">
@@ -100,7 +91,7 @@ export default function Component() {
                   <h3 className="text-lg font-bold">Quantum Mechanics</h3>
                 </div>
                 <Link
-                  href="#"
+                  href="/Univercitise/Fields/Courses/chapter"
                   className="inline-flex items-center gap-1 text-primary hover:underline"
                   prefetch={false}
                 >

@@ -53,51 +53,10 @@ export default function Component() {
           <h2 className="mb-8 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Explore Our University Community
           </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className=" justify-center grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <Card className="group">
               <Image
-                src="/placeholder.svg"
-                width={300}
-                height={200}
-                alt="University Logo"
-                className="rounded-t-lg object-cover"
-              />
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">Stanford University</h3>
-                  <Badge variant="secondary">Verified</Badge>
-                </div>
-                <p className="mt-2 text-muted-foreground">
-                  A world-renowned research university located in the heart of
-                  Silicon Valley.
-                </p>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-2">
-                  <Avatar>
-                    <AvatarImage src="/placeholder-user.jpg" />
-                    <AvatarFallback>SA</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-medium">Sarah Adams</div>
-                    <div className="text-xs text-muted-foreground">
-                      University Admin
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-1 text-primary hover:underline"
-                  prefetch={false}
-                >
-                  Join Community
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card className="group">
-              <Image
-                src="/placeholder.svg"
+                src="/harvard.png"
                 width={300}
                 height={200}
                 alt="University Logo"
@@ -127,89 +86,7 @@ export default function Component() {
                   </div>
                 </div>
                 <Link
-                  href="#"
-                  className="inline-flex items-center gap-1 text-primary hover:underline"
-                  prefetch={false}
-                >
-                  Join Community
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card className="group">
-              <Image
-                src="/placeholder.svg"
-                width={300}
-                height={200}
-                alt="University Logo"
-                className="rounded-t-lg object-cover"
-              />
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">University of Cambridge</h3>
-                  <Badge variant="secondary">Verified</Badge>
-                </div>
-                <p className="mt-2 text-muted-foreground">
-                  A prestigious research university with a rich history and
-                  global reputation.
-                </p>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-2">
-                  <Avatar>
-                    <AvatarImage src="/placeholder-user.jpg" />
-                    <AvatarFallback>EM</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-medium">Emily Miller</div>
-                    <div className="text-xs text-muted-foreground">
-                      University Admin
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-1 text-primary hover:underline"
-                  prefetch={false}
-                >
-                  Join Community
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card className="group">
-              <Image
-                src="/placeholder.svg"
-                width={300}
-                height={200}
-                alt="University Logo"
-                className="rounded-t-lg object-cover"
-              />
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">University of Oxford</h3>
-                  <Badge variant="secondary">Verified</Badge>
-                </div>
-                <p className="mt-2 text-muted-foreground">
-                  A world-leading research university with a long and
-                  prestigious history.
-                </p>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-2">
-                  <Avatar>
-                    <AvatarImage src="/placeholder-user.jpg" />
-                    <AvatarFallback>JB</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-medium">James Brown</div>
-                    <div className="text-xs text-muted-foreground">
-                      University Admin
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="#"
+                  href="/Univercitise/Fields"
                   className="inline-flex items-center gap-1 text-primary hover:underline"
                   prefetch={false}
                 >
