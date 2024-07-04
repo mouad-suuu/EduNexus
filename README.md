@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EduNEXUS
 
-## Getting Started
+Welcome to EduNEXUS! This repository contains the source code for the EduNEXUS project, an educational platform designed to centralize and streamline access to course materials, videos, documents, and interactive content for students and educators.
 
-First, run the development server:
+## Table of Contents
+- [Project Description](#project-description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Screenshots](#screenshots)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Description
+EduNEXUS is a comprehensive educational platform that allows users to share, access, and manage course materials and resources. The platform aims to solve the problem of fragmented educational resources by centralizing content from various universities and professors, enabling a unified and organized learning experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- **Authentication:** Secure login using Google, GitHub, and email, with a secondary authentication layer for academic emails.
+- **Course Management:** Users can create, edit, and share course pages with videos, documents, quizzes, and discussions.
+- **Community Creation:** Users can create communities for their universities, ensuring that only authorized users can contribute.
+- **Responsive Design:** A user-friendly and responsive interface for a seamless experience on any device.
+- **Document and Video Viewing:** Integrated viewers for PDFs and YouTube videos within the platform.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
+- **Frontend:** React, Next.js, Tailwind CSS
+- **Backend:** Node.js, Express.js, MongoDB
+- **Authentication:** NextAuth.js, Auth0
+- **File Storage:** Google Drive API
+- **PDF Viewing:** @react-pdf-viewer/core
+- **Styling:** Tailwind CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Setup Instructions
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/EduNEXUS.git
+    cd EduNEXUS
+    ```
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3. **Set up environment variables:** Create a `.env` file in the root directory and add the following:
+    ```env
+    NEXTAUTH_URL=http://localhost:3000
+    MONGODB_URI=your_mongodb_uri
+    GOOGLE_CLIENT_ID=your_google_client_id
+    GOOGLE_CLIENT_SECRET=your_google_client_secret
+    GITHUB_ID=your_github_id
+    GITHUB_SECRET=your_github_secret
+    AUTH0_DOMAIN=your_auth0_domain
+    AUTH0_CLIENT_ID=your_auth0_client_id
+    AUTH0_CLIENT_SECRET=your_auth0_client_secret
+    ```
+4. **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+5. **Open your browser and navigate to:**
+    ```
+    http://localhost:3000
+    ```
 
-## Learn More
+## Usage
+- **Authentication:** Sign up or log in using Google, GitHub, or email.
+- **Create a Community:** Navigate to the community creation page and fill out the required information.
+- **Add Course Content:** Within a community, create and manage course pages by uploading documents, adding videos, and creating quizzes.
+- **View Content:** Access shared course materials, documents, and videos directly within the platform.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
+We welcome contributions from the community! If you'd like to contribute to EduNEXUS, please follow these steps:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Create a pull request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contact
+For any questions or inquiries, please contact:
+- **Mouad Mennioui**
+- **Email:** mouad.mennioui@example.com
 
-## Deploy on Vercel
+## Screenshots
+Below is a video demonstrating the functionality of EduNEXUS:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Video Demo
+![Video Demo](
+
+https://github.com/mouad-suuu/EduNexus/assets/126404554/2cb1a516-2d17-48e0-ae8a-c80afda0df7f
+
+)
+
