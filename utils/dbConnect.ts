@@ -1,54 +1,20 @@
-// lib/mongodb.ts
 import mongoose, { ConnectOptions } from "mongoose";
 
-const MONGODB_URI: string = process.env.MONGODB_URI as string;
-
-if (!MONGODB_URI) {
-  throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env.local"
-  );
+interface ExtendedConnectOptions extends ConnectOptions {
+  useNewUrlParser?: boolean;
 }
 
-interface MongooseCache {
-  conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
-}
+const dbConnect = async () => {
+  // check if we have a connection to the database or if it's currently
+  // connecting or disconnecting (readyState 1, 2 and 3)
+  if (mongoose.connection.readyState >= 1) return;
+  console.log("Connected to DB");
+  return mongoose.connect(process.env.MONGODB_URI!, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  } as ExtendedConnectOptions);
+};
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      mongoose: MongooseCache;
-    }
-  }
-}
-
-global.mongoose = global.mongoose || { conn: null, promise: null };
-
-const cached: MongooseCache = global.mongoose;
-
-async function connectToDatabase(): Promise<typeof mongoose> {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    const opts: ConnectOptions = {
-      // Add other options here if needed
-    };
-
-    cached.promise = mongoose
-      .connect(MONGODB_URI, opts)
-      .then((mongoose) => {
-        return mongoose;
-      })
-      .catch((error) => {
-        console.error("MongoDB connection error:", error);
-        throw new Error("Failed to connect to MongoDB");
-      });
-  }
-
-  cached.conn = await cached.promise;
-  return cached.conn;
-}
-
-export default connectToDatabase;
+export default dbConnect;

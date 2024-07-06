@@ -21,10 +21,10 @@ async function main() {
 
     // Example of inserting a university with an empty fields array
     const university = {
-      name: "Example University",
-      logoUrl: "https://example.com/logo.png",
-      description: "A sample university for demonstration purposes.",
-      location: "Sample City, Sample Country",
+      name: "222 Example University",
+      logoUrl: " 22https://example.com/logo.png",
+      description: "22 A sample university for demonstration purposes.",
+      location: "22 sample City, Sample Country",
       academicEmailFormat: "example.edu",
       websiteUrl: "https://example.edu",
       fields: [
@@ -62,7 +62,7 @@ async function main() {
       ],
     };
 
-    const result = await universitiesCollection.find(university);
+    const result = universitiesCollection.find(university);
     console.log(`University inserted with _id: ${result.insertedId}`);
   } catch (err) {
     console.error(err);
