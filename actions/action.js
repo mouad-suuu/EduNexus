@@ -32,4 +32,13 @@ const getUniversities = async () => {
   return University.find();
 };
 
-export { addUniversity, getUniversities };
+const getAllUniversities = async () => {
+  try {
+    const universities = await University.find();
+    return universities;
+  } catch (error) {
+    throw new Error("Error retrieving universities: " + error.message);
+  }
+};
+
+export { addUniversity, getUniversities, getAllUniversities };

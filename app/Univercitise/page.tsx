@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -5,8 +8,36 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
+import axios from "axios";
 
+interface university {
+  _id: string;
+  name: string;
+  description: string;
+  location: string;
+  website: string;
+  academicEmailFormat: string;
+  logo: string;
+  fields: any[];
+  __v: number;
+}
 export default function Component() {
+  const [universities, setUniversities] = useState([]);
+
+  useEffect(() => {
+    // Fetch universities data from the API
+    async function fetchUniversities() {
+      try {
+        const response = await axios.get("/api/universities");
+        setUniversities(response.data);
+      } catch (error) {
+        console.error("Error fetching universities data:", error);
+      }
+    }
+
+    fetchUniversities();
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -45,7 +76,6 @@ export default function Component() {
             <Link href="/create-community">
               Create a Community for Your University
             </Link>
-
             <PlusIcon className="h-6 w-6" />
           </Button>
         </section>
@@ -53,48 +83,49 @@ export default function Component() {
           <h2 className="mb-8 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Explore Our University Community
           </h2>
-          <div className=" justify-center grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <Card className="group">
-              <Image
-                src="/harvard.png"
-                width={300}
-                height={200}
-                alt="University Logo"
-                className="rounded-t-lg object-cover"
-              />
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">Harvard University</h3>
-                  <Badge variant="secondary">Verified</Badge>
-                </div>
-                <p className="mt-2 text-muted-foreground">
-                  One of the most prestigious universities in the world, known
-                  for its excellence in education and research.
-                </p>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-2">
-                  <Avatar>
-                    <AvatarImage src="/placeholder-user.jpg" />
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-medium">John Doe</div>
-                    <div className="text-xs text-muted-foreground">
-                      University Admin
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {universities.map((university) => (
+              <Card key={university._id} className="group">
+                <Image
+                  src={university.logo}
+                  width={300}
+                  height={200}
+                  alt={`${university.name} Logo`}
+                  className="rounded-t-lg object-cover"
+                />
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-bold">{university.name}</h3>
+                    <Badge variant="secondary">Verified</Badge>
+                  </div>
+                  <p className="mt-2 text-muted-foreground">
+                    {university.description}
+                  </p>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between p-4">
+                  <div className="flex items-center gap-2">
+                    <Avatar>
+                      <AvatarImage src="/placeholder-user.jpg" />
+                      <AvatarFallback>JD</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div className="font-medium">mouad</div>
+                      <div className="text-xs text-muted-foreground">
+                        University Admin
+                      </div>
                     </div>
                   </div>
-                </div>
-                <Link
-                  href="/Univercitise/Fields"
-                  className="inline-flex items-center gap-1 text-primary hover:underline"
-                  prefetch={false}
-                >
-                  Join Community
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
-              </CardFooter>
-            </Card>
+                  <Link
+                    href={`/universities/${university._id}/fields`}
+                    className="inline-flex items-center gap-1 text-primary hover:underline"
+                    prefetch={false}
+                  >
+                    Join Community
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </section>
       </main>
@@ -112,7 +143,7 @@ export default function Component() {
               className="text-sm text-muted-foreground hover:underline"
               prefetch={false}
             >
-              created by mouad
+              Created by Mouad
             </Link>
           </nav>
         </div>
