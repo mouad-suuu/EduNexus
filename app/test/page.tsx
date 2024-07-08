@@ -1,16 +1,17 @@
 "use client";
+// \components\UploadForm.js
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export default function UploadForm() {
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState(null);
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: any) => {
     if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
     }
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (!file) {
@@ -29,7 +30,7 @@ export default function UploadForm() {
 
       if (res.ok) {
         const data = await res.json();
-        alert(`File uploaded successfully with ID: ${data.data}`);
+        alert(`File uploaded successfully`);
       } else {
         alert("Failed to upload file");
       }

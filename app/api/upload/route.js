@@ -1,39 +1,27 @@
-const { google } = require("googleapis");
-const { OAuth2Client } = require("google-auth-library");
+import formidable from "formidable";
+import uploadFile from "@/actions/uploadUtil";
 
-const oauth2Client = new OAuth2Client({
-  clientId: "YOUR_CLIENT_ID",
-  clientSecret: "YOUR_CLIENT_SECRET",
-  redirectUri: "YOUR_REDIRECT_URI",
-});
+export async function POST(req, res) {
+  const form = new formidable.IncomingForm();
 
-async function uploadFile(req, res) {
-  const { token } = req.body; // Assuming you're passing the token in the request body
+  form.parse(req, async (err, fields, files) => {
+    if (err) {
+      console.error("Error parsing form:", err);
+      res.status(500).json({ error: "Error parsing form data" });
+      return;
+    }
 
-  oauth2Client.setCredentials({
-    access_token: token.access_token,
-    refresh_token: token.refresh_token,
-    expiry_date: token.expiry_date, // Ensure this is stored and used correctly
+    const filePath = files.file.path;
+    const fileName = files.file.name;
+
+    try {
+      const webViewLink = await uploadFile(filePath, fileName);
+      res.status(200).json({ data: webViewLink });
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      res.status(500).json({ error: "Failed to upload file to Google Drive" });
+    }
   });
-
-  const drive = google.drive({ version: "v3", auth: oauth2Client });
-
-  try {
-    // Perform the file upload operation
-    const response = await drive.files.create({
-      requestBody: {
-        name: "File Name",
-        mimeType: "image/png", // Example MIME type
-      },
-      media: {
-        mimeType: "image/png",
-        body: req.file.buffer, // Assuming you have the file buffer available
-      },
-    });
-
-    res.status(200).json(response.data);
-  } catch (error) {
-    console.error("Error uploading file:", error);
-    res.status(500).send("Error uploading file: " + error.message);
-  }
 }
+
+export default POST;
