@@ -1,9 +1,14 @@
-import { Form } from "@/components/form";
+// pages/index.js
 
-export default function Home() {
+import FileUploadForm from "@/components/FileUploadForm";
+
+const HomePage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Form />
-    </main>
+    <div>
+      <h1>Welcome to My Application</h1>
+      <FileUploadForm />
+    </div>
   );
-}
+};
+
+export default HomePage;
