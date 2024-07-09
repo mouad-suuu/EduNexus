@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.1.6",
+    "@clerk/nextjs": "^5.2.2",
+    "@google-cloud/storage": "^7.11.3",
+    "@googleapis/drive": "^8.11.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-label": "^2.1.0",

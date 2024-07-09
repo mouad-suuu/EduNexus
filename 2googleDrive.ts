@@ -1,6 +1,6 @@
+require("dotenv").config(); // Load environment variables from .env file
 const fs = require("fs");
 const { google } = require("googleapis");
-require("dotenv").config(); // Load environment variables from .env file
 
 // Initialize OAuth2 client with environment variables
 const oAuth2Client = new google.auth.OAuth2(
@@ -14,15 +14,7 @@ oAuth2Client.setCredentials({
   refresh_token: process.env.REFRESH_TOKEN,
 });
 
-oAuth2Client.on("tokens", (tokens) => {
-  if (tokens.refresh_token) {
-    // store the refresh_token in my database
-    console.log(`Refresh token: ${tokens.refresh_token}`);
-  }
-  console.log(`Access token: ${tokens.access_token}`);
-});
-
-async function uploadFile(filePath, fileName) {
+async function uploadFile(filePath: string, fileName: any) {
   const drive = google.drive({ version: "v3", auth: oAuth2Client });
 
   // Determine MIME type based on file extension
@@ -71,5 +63,4 @@ async function uploadFile(filePath, fileName) {
     throw new Error("Failed to upload file to Google Drive");
   }
 }
-
-module.exports = { uploadFile }; // Ensure uploadFile is exported correctly
+module.exports = uploadFile;
