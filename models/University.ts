@@ -4,6 +4,8 @@ interface IContent extends Document {
   title: string;
   description: string;
   url: string;
+  webViewLink: string; // Added field for viewing the document
+  webContentLink: string; // Added field for downloading the document
   upvotes: number;
   createdBy: Types.ObjectId;
 }
@@ -64,10 +66,11 @@ const ContentSchema: Schema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   url: { type: String, required: true },
+  webViewLink: { type: String, required: true }, // Define webViewLink field
+  webContentLink: { type: String, required: true }, // Define webContentLink field
   upvotes: { type: Number, default: 0 },
   createdBy: { type: Schema.Types.ObjectId, ref: "User", required: true },
 });
-
 const AnswerSchema: Schema = new Schema({
   content: { type: String, required: true },
   createdBy: { type: Schema.Types.ObjectId, ref: "User", required: true },
