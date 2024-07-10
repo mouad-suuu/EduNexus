@@ -21,7 +21,7 @@ export default function Component() {
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-40 w-full border-b bg-background">
         <div className="container flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href="#" className="flex items-center gap-2" prefetch={false}>
+          <Link href="/" className="flex items-center gap-2" prefetch={false}>
             <BookIcon className="h-6 w-6 text-primary" />
             <span className="font-bold text-primary">EduNexus</span>
           </Link>
@@ -50,6 +50,7 @@ export default function Component() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="flex items-center justify-between py-2">
+            {" "}
             <nav className="flex items-center gap-4">
               <Link
                 href="/Univercities/Fields/Courses/chapter"
@@ -73,14 +74,14 @@ export default function Component() {
                 Videos
               </Link>
               <Link
-                href="#"
+                href="/Univercities/Fields/Courses/chapter/Exercicse"
                 className="text-muted-foreground hover:underline"
                 prefetch={false}
               >
                 Exercises/Exams
               </Link>
               <Link
-                href="#"
+                href="/Univercities/Fields/Courses/chapter/Questions"
                 className="text-muted-foreground hover:underline"
                 prefetch={false}
               >

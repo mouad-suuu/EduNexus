@@ -119,7 +119,7 @@ export default function UniversitiesList() {
                     </div>
                   </div>
                   <Link
-                    href={`/universities/${university._id}/fields`}
+                    href={`/Univercities/Fields`}
                     className="inline-flex items-center gap-1 text-primary hover:underline"
                     prefetch={false}
                   >
