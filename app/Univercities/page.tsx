@@ -10,19 +10,20 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
 import axios from "axios";
 
-interface university {
+interface University {
   _id: string;
   name: string;
   description: string;
   location: string;
   website: string;
   academicEmailFormat: string;
-  logo: string;
+  logo: string; // Assuming this is a URL to the logo image
   fields: any[];
   __v: number;
 }
-export default function Component() {
-  const [universities, setUniversities] = useState([]);
+
+export default function UniversitiesList() {
+  const [universities, setUniversities] = useState<University[]>([]);
 
   useEffect(() => {
     // Fetch universities data from the API
@@ -86,13 +87,15 @@ export default function Component() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {universities.map((university) => (
               <Card key={university._id} className="group">
-                <Image
-                  src={university.logo}
-                  width={300}
-                  height={200}
-                  alt={`${university.name} Logo`}
-                  className="rounded-t-lg object-cover"
-                />
+                {university.logo && (
+                  <Image
+                    src={university.logo} // Assuming this is a direct URL to the image file
+                    width={300}
+                    height={200}
+                    alt={`${university.name} Logo`}
+                    className="rounded-t-lg object-cover"
+                  />
+                )}
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold">{university.name}</h3>
@@ -109,7 +112,7 @@ export default function Component() {
                       <AvatarFallback>JD</AvatarFallback>
                     </Avatar>
                     <div>
-                      <div className="font-medium">mouad</div>
+                      <div className="font-medium">Admin Name</div>
                       <div className="text-xs text-muted-foreground">
                         University Admin
                       </div>
@@ -143,7 +146,7 @@ export default function Component() {
               className="text-sm text-muted-foreground hover:underline"
               prefetch={false}
             >
-              Created by Mouad
+              Created by Admin Name
             </Link>
           </nav>
         </div>

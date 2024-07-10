@@ -31,13 +31,13 @@ export default function Component() {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/Univercitise/Fields">
+                <BreadcrumbLink href="/Univercities/Fields">
                   University
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/Univercitise/Fields/Courses">
+                <BreadcrumbLink href="/Univercities/Fields/Courses">
                   Quantum Mechanics
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -52,21 +52,21 @@ export default function Component() {
           <div className="flex items-center justify-between py-2">
             <nav className="flex items-center gap-4">
               <Link
-                href="/Univercitise/Fields/Courses/chapter"
+                href="/Univercities/Fields/Courses/chapter"
                 className="text-muted-foreground hover:underline"
                 prefetch={false}
               >
                 Chapter Content
               </Link>
               <Link
-                href="/Univercitise/Fields/Courses/chapter/Documents"
+                href="/Univercities/Fields/Courses/chapter/Documents"
                 className="text-primary font-medium"
                 prefetch={false}
               >
                 Documents
               </Link>
               <Link
-                href="/Univercitise/Fields/Courses/chapter/videos"
+                href="/Univercities/Fields/Courses/chapter/videos"
                 className="text-muted-foreground hover:underline"
                 prefetch={false}
               >

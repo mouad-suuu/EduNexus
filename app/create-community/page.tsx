@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 function CreateUniversityForm() {
   const [formData, setFormData] = useState({
-    logo: "",
+    logoFile: "",
     name: "",
     description: "",
     location: "",
@@ -21,6 +21,12 @@ function CreateUniversityForm() {
     phone: "",
   });
   const router = useRouter();
+
+  const handleFileChange = (e: any) => {
+    const file = e.target.files[0];
+    setFormData({ ...formData, logoFile: file });
+  };
+
   const handleChange = (e: any) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -29,18 +35,39 @@ function CreateUniversityForm() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/universities", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // Prepare form data for logo upload
+      const formDataLogo = new FormData();
+      formDataLogo.append("file", formData.logoFile);
 
-      if (response.ok) {
-        router.push("/Univercitise"); // Replace '/success' with the desired route
+      // Upload logo to Google Drive
+      const responseUpload = await axios.post("/api/upload", formDataLogo);
+
+      if (responseUpload.data.success) {
+        // If logo upload to Google Drive succeeds, add logo link to university data
+        const universityData = {
+          name: formData.name,
+          description: formData.description,
+          location: formData.location,
+          emailFormat: formData.emailFormat,
+          contact: formData.contact,
+          website: formData.website,
+          phone: formData.phone,
+          logo: `https://drive.google.com/uc?id=${responseUpload.data.fileId}`, // Assuming logo field in backend expects the Google Drive link
+        };
+
+        // Create university
+        const responseCreate = await axios.post(
+          "/api/universities",
+          universityData
+        );
+
+        if (responseCreate.status === 201) {
+          router.push("/Univercities"); // Navigate to universities page on success
+        } else {
+          console.error("Failed to create university");
+        }
       } else {
-        console.error("Failed to submit the form");
+        console.error("Failed to upload logo to Google Drive");
       }
     } catch (error) {
       console.error("An error occurred", error);
@@ -63,13 +90,8 @@ function CreateUniversityForm() {
           <CardContent className="grid gap-6">
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label htmlFor="logo">University Logo</Label>
-                <Input
-                  id="logo"
-                  placeholder="Enter logo URL"
-                  value={formData.logo}
-                  onChange={handleChange}
-                />
+                <Label htmlFor="logoFile">University Logo</Label>
+                <Input id="logoFile" type="file" onChange={handleFileChange} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="name">University Name</Label>
