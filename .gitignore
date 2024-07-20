@@ -34,3 +34,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env
+public/uploads/Screenshot 2024-06-20 161928.png
+.env
+/public
+.env
